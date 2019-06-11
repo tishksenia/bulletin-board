@@ -24,6 +24,7 @@ class AdsList extends React.Component {
     render() {
         return(
             <div className="ad-list">
+                <h2>Available Ads</h2>
                 {this.renderAds()}
             </div>
         );

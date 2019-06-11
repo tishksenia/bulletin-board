@@ -61,6 +61,7 @@ class Form extends React.Component {
     render() {
         return(
             <div>
+                <h2>Post new Ad</h2>
                 <form onSubmit={this.handleFormSubmit}>
                     <label>
                         Title

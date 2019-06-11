@@ -5,7 +5,7 @@ class Ad extends React.Component {
     render() {
         return(
             <div>
-                <h2>{this.props.title}</h2>
+                <h3>{this.props.title}</h3>
                 <p>{this.props.message}</p>
                 <span>{this.props.phone}</span>
             </div>

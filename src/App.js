@@ -6,8 +6,8 @@ import './App.css';
 class App extends React.Component {
   constructor(props) {
     super(props);
+    this.appTitle = "Bulletin Board";
     this.state = {
-        
         AdsArray: []
     }
   }
@@ -46,10 +46,11 @@ class App extends React.Component {
     ads.push(adItem);
     this.setState({ AdsArray: ads });
   }
+
   render() {
     return (
       <div className="App">
-        <h1>My app</h1>
+        <h1>{this.appTitle}</h1>
         <Form addItem={this.addNewAdItem} />
         <AdsList ads={this.state.AdsArray} sort={this.sortAds}/>
         
