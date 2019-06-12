@@ -59,7 +59,7 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <h1>{this.appTitle}</h1>
+        <h1 className="app-title">{this.appTitle}</h1>
         <Form addItem={this.addNewAdItem} />
         <AdsList ads={this.state.AdsArray} sort={this.sortAds} deleteHandler={this.deleteAdItem} />
         

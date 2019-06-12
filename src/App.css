@@ -22,3 +22,27 @@
 .App-link {
   color: #61dafb;
   */
+@import '../node_modules/reset-css/reset.css';
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+
+body {
+  background: linear-gradient(0.25turn, rgba(241, 208, 255, 100%), rgba(0, 255, 187, 0.5));
+}
+.App {
+  background-color: #FFFFFF;
+  max-width: 40%;
+  margin: 0 auto;
+  margin-top: 100px;
+  padding: 60px;
+}
+
+h1, h2, h3, p, span, button, label {
+  font-family: 'Roboto', sans-serif;
+  color: #333333;
+}
+
+.app-title {
+  font-size: 36px;
+  font-weight: bold;
+  text-align: center;
+}
