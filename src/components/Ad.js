@@ -1,5 +1,5 @@
 import React from "react";
-import "./Ad.css";
+import "../css/Ad.css";
 
 class Ad extends React.Component {
   render() {
@@ -8,6 +8,12 @@ class Ad extends React.Component {
         <h3 className="Ad-title">{this.props.title}</h3>
         <p className="Ad-message">{this.props.message}</p>
         <span className="Ad-phone">Phone: {this.props.phone}</span>
+        {this.props.city ? (
+          <span className="Ad-city">City: {this.props.city}</span>
+        ) : (
+          ""
+        )}
+
         <button
           className="Ad-delete-btn btn"
           onClick={() => this.props.deleteHandler(this.props.dateTimestamp)}

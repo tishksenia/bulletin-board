@@ -1,18 +1,18 @@
 import React from "react";
-import "./Form.css";
-//import './App.css';
+import "../css/Form.css";
+import FormErrors from "./FormErrors";
 
 // Defines if form is valid or not
 const formValid = ({ formErrors, ...rest }) => {
   let valid = true;
   Object.values(formErrors).forEach(val => {
-    // if errors is empty, valid will not be set to false
+    // if error is empty, valid will not be set to false
     val.length > 0 && (valid = false);
   });
   for (let value in rest) {
-    if (value !== "message") rest[value] === "" && (valid = false);
+    if (value !== "message" && value !== "city")
+      rest[value] === "" && (valid = false);
   }
-  console.log(formErrors);
   return valid;
 };
 
@@ -23,10 +23,12 @@ class Form extends React.Component {
       title: "",
       message: "",
       phone: "",
+      city: "",
       formErrors: {
         title: "",
         message: "",
-        phone: ""
+        phone: "",
+        city: ""
       }
     };
   }
@@ -73,13 +75,10 @@ class Form extends React.Component {
       default:
         break;
     }
-
-    this.setState(
-      {
-        formErrors,
-        [name]: value
-      } /*,  () => console.log(this.state)*/
-    );
+    this.setState({
+      formErrors,
+      [name]: value
+    });
   };
   //Returns phone number in +7 (999) 999-11-11 format
   getFormattedNumber(num) {
@@ -111,12 +110,10 @@ class Form extends React.Component {
         this.state.title,
         this.state.message,
         this.state.phone,
+        this.state.city,
         timestamp
       );
       this.resetFormValues();
-    } else {
-      //error
-      console.log("not valid");
     }
   };
   // Clears all form values in state on submit
@@ -125,10 +122,12 @@ class Form extends React.Component {
       title: "",
       message: "",
       phone: "",
+      city: "",
       formErrors: {
         title: "",
         message: "",
-        phone: ""
+        phone: "",
+        city: ""
       }
     });
   }
@@ -150,10 +149,12 @@ class Form extends React.Component {
             value={this.state.title}
             onChange={this.handleInputChange}
           />
+          <FormErrors inputName="title" formErrors={this.state.formErrors} />
+
           <label className="form-group__label" htmlFor="message">
             Message
           </label>
-          <input
+          <textarea
             className={`form-group__text-input ${
               this.state.formErrors.message.length > 0 ? "error" : ""
             }`}
@@ -163,6 +164,8 @@ class Form extends React.Component {
             value={this.state.message}
             onChange={this.handleInputChange}
           />
+          <FormErrors inputName="message" formErrors={this.state.formErrors} />
+
           <label className="form-group__label" htmlFor="phone">
             Phone <span className="required">*</span>
           </label>
@@ -175,6 +178,26 @@ class Form extends React.Component {
             value={this.state.phone}
             onChange={this.handleInputChange}
           />
+          <FormErrors inputName="phone" formErrors={this.state.formErrors} />
+
+          <label className="form-group__label" htmlFor="city">
+            City
+          </label>
+          <select
+            className="form-group__select"
+            name="city"
+            id="city"
+            value={this.state.city}
+            onChange={this.handleInputChange}
+          >
+            <option value="">Choose a city</option>
+            <option value="Mumbai">Mumbai</option>
+            <option value="Riga">Riga</option>
+            <option value="Moscow">Moscow</option>
+            <option value="Torronto">Torronto</option>
+            <option value="Kioto">Kioto</option>
+          </select>
+
           <input
             className="form-group__submit-btn btn"
             type="submit"

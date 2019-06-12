@@ -1,7 +1,6 @@
 import React from "react";
 import Ad from "./Ad";
-import "./AdsList.css";
-//import './App.css';
+import "../css/AdsList.css";
 
 class AdsList extends React.Component {
   // Renders ads from AdsArray, passed down using props
@@ -15,6 +14,7 @@ class AdsList extends React.Component {
         title={ad.title}
         message={ad.message}
         phone={ad.phone}
+        city={ad.city}
         deleteHandler={this.props.deleteHandler}
       />
     ));

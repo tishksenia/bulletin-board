@@ -15,12 +15,18 @@
 
 .Ad-message {
   line-height: 25px;
+  white-space: pre-wrap;
 }
 
-.Ad-phone {
+.Ad-phone,
+.Ad-city {
   display: inline-block;
   padding-top: 20px;
   font-weight: bold;
+}
+.Ad-city {
+  display: block;
+  font-weight: normal;
 }
 
 .Ad-delete-btn {

@@ -1,7 +1,7 @@
 import React from "react";
 import AdsList from "./components/AdsList";
 import Form from "./components/Form";
-import "./App.css";
+import "./css/App.css";
 
 class App extends React.Component {
   constructor(props) {
@@ -38,12 +38,13 @@ class App extends React.Component {
     localStorage.clear();
   }
   // Handle form submit, adding new <Ad /> element (with given arguments) to the AdsArray
-  addNewAdItem = (title, message, phone, dateTimestamp) => {
+  addNewAdItem = (title, message, phone, city, dateTimestamp) => {
     let ads = this.state.AdsArray;
     let adItem = {
       title,
       message,
       phone,
+      city,
       dateTimestamp
     };
     ads.push(adItem);

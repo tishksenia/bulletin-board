@@ -1,6 +1,8 @@
 .Form {
   width: 50%;
-  margin: 40px 0;
+  margin: 0 auto;
+  margin-top: 40px;
+  margin-bottom: 40px;
   padding: 0 60px;
 }
 .Form-heading {
@@ -35,6 +37,11 @@
   color: #777;
 }
 
+textarea {
+  max-width: 100%;
+  white-space: pre-wrap;
+}
+
 .error {
   border: 1px solid #ffac74;
 }
@@ -44,21 +51,24 @@
   transition-duration: 0.5s;
 
   width: 100%;
-  /* padding: 10px 14px; */
   margin: 40px 0;
-
-  /* border-radius: 10px;
-  border: 0;
-  outline: 0;
-  background-color: #8aecdc; */
 
   font-size: 24px;
   letter-spacing: 2px;
-  /* color: #ffffff; */
 }
-/* 
-.form-group__submit-btn:hover {
-  transition-duration: 0.5s;
+.form-group__select {
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-appearance: none;
+  outline: none;
 
-  background-color: #bee8e1;
-} */
+  width: 100%;
+  padding: 15px 20px;
+  margin: 20px 0;
+
+  border-radius: 20px;
+  border: 1px solid #85edda;
+
+  font-size: 16px;
+  color: #777;
+}
