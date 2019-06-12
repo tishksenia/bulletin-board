@@ -1,4 +1,5 @@
 import React from "react";
+import "../css/FormErrors.css";
 
 class FormErrors extends React.Component {
   render() {
