@@ -8,6 +8,7 @@ class Ad extends React.Component {
                 <h3>{this.props.title}</h3>
                 <p>{this.props.message}</p>
                 <span>{this.props.phone}</span>
+                <button className="delete-btn" onClick={() => this.props.deleteHandler(this.props.key)}>Delete Ad</button>
             </div>
         );
     }

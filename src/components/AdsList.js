@@ -8,7 +8,7 @@ class AdsList extends React.Component {
         const ads = this.sortAds(this.props.ads);
 
         const adsItems = ads.map((ad) => 
-            <Ad key={ad.dateTimestamp} title={ad.title} message={ad.message} phone={ad.phone} />
+            <Ad key={ad.dateTimestamp} dateTimestamp={ad.dateTimestamp} title={ad.title} message={ad.message} phone={ad.phone} deleteHandler={this.props.deleteHandler} />
         );
         return adsItems;
     }

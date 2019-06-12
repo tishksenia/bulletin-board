@@ -46,13 +46,22 @@ class App extends React.Component {
     ads.push(adItem);
     this.setState({ AdsArray: ads });
   }
+  // Handle delete button click, removing an Ad item from AdsArray by its timestamp
+  deleteAdItem = (timestamp) => {
+    let ads = this.state.AdsArray; 
+    ads = ads.filter((val, i, arr) => {
+      return val.dateTimestamp !== timestamp;
+    });
+    this.setState({ AdsArray: ads });
+  }
+  
 
   render() {
     return (
       <div className="App">
         <h1>{this.appTitle}</h1>
         <Form addItem={this.addNewAdItem} />
-        <AdsList ads={this.state.AdsArray} sort={this.sortAds}/>
+        <AdsList ads={this.state.AdsArray} sort={this.sortAds} deleteHandler={this.deleteAdItem} />
         
       </div>
     );
