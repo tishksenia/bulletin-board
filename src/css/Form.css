@@ -5,6 +5,19 @@
   margin-bottom: 40px;
   padding: 0 60px;
 }
+
+@media screen AND (max-width: 1400px) {
+  .Form {
+    width: 70%;
+  }
+}
+
+@media screen AND (max-width: 650px) {
+  .Form {
+    padding: 0 20px;
+  }
+}
+
 .Form-heading {
   margin: 40px 0;
   font-weight: bold;

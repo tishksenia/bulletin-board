@@ -4,9 +4,13 @@ class FormErrors extends React.Component {
   render() {
     return (
       <div className="FormErrors">
-        <p className="FormErrors-error-text">
-          {this.props.formErrors[this.props.inputName]}
-        </p>
+        {this.props.formErrors[this.props.inputName] !== "" ? (
+          <p className="FormErrors-error-text">
+            {this.props.formErrors[this.props.inputName]}
+          </p>
+        ) : (
+          ""
+        )}
       </div>
     );
   }

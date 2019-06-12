@@ -16,6 +16,12 @@ body {
   padding-top: 60px;
 }
 
+@media screen AND (max-width: 1400px) {
+  .App {
+    max-width: 90%;
+  }
+}
+
 h1,
 h2,
 h3,

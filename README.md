@@ -1,9 +1,16 @@
 ## Bulletin Board
+
 Bulletin board CRUD app that allows to create, read, add new ads, and remove existing ones.  
 Ads are ordered by time and date when they were added, the most recent ones shown on top.  
-App's data is stored in local storage.  
+App's data is stored in local storage.
+
 #### Stack:
+
 React.js, Jest
+
+#### Demo:
+
+[Bulletin Board](https://determined-bardeen-2815d3.netlify.com/).
 
 ---
 
