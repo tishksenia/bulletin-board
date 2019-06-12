@@ -1,6 +1,7 @@
 .Form {
   width: 50%;
   margin: 40px 0;
+  padding: 0 60px;
 }
 .Form-heading {
   margin: 40px 0;
@@ -43,21 +44,21 @@
   transition-duration: 0.5s;
 
   width: 100%;
-  padding: 10px 14px;
+  /* padding: 10px 14px; */
   margin: 40px 0;
 
-  border-radius: 10px;
+  /* border-radius: 10px;
   border: 0;
   outline: 0;
-  background-color: #8aecdc;
+  background-color: #8aecdc; */
 
   font-size: 24px;
   letter-spacing: 2px;
-  color: #ffffff;
+  /* color: #ffffff; */
 }
-
+/* 
 .form-group__submit-btn:hover {
   transition-duration: 0.5s;
 
   background-color: #bee8e1;
-}
+} */

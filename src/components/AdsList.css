@@ -1,0 +1,10 @@
+.AdsList {
+  width: 100%;
+  background: #ebebeb;
+  padding-bottom: 80px;
+  margin-bottom: 40px;
+}
+.AdsList-title {
+  font-size: 24px;
+  padding: 40px;
+}

@@ -176,7 +176,7 @@ class Form extends React.Component {
             onChange={this.handleInputChange}
           />
           <input
-            className="form-group__submit-btn"
+            className="form-group__submit-btn btn"
             type="submit"
             value="Post"
           />

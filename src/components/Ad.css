@@ -1,0 +1,30 @@
+.Ad {
+  position: relative;
+  width: 80%;
+  margin: 0 auto;
+  border-radius: 20px;
+  background-color: #ffffff;
+  padding: 40px 20px;
+  margin-bottom: 40px;
+}
+
+.Ad-title {
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
+.Ad-message {
+  line-height: 25px;
+}
+
+.Ad-phone {
+  display: inline-block;
+  padding-top: 20px;
+  font-weight: bold;
+}
+
+.Ad-delete-btn {
+  position: absolute;
+  top: 40px;
+  right: 40px;
+}
