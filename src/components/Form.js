@@ -82,22 +82,8 @@ class Form extends React.Component {
   };
   //Returns phone number in +7 (999) 999-11-11 format
   getFormattedNumber(num) {
-    // let numInDigits = num.replace(/[^0123456789]/g, "");
-    // let result = "";
-    // if(numInDigits.length <= 3) {
-    //     result = `(${numInDigits.slice(0,3)})`;
-    // }
-    // else if(numInDigits.length <= 6) {
-    //     result = `(${numInDigits.slice(0,3)}) ${numInDigits.slice(3, 6)}`;
-    // }
-    // else if(numInDigits.length <= 8) {
-    //     result = `(${numInDigits.slice(0,3)}) ${numInDigits.slice(3, 6)}-${numInDigits.slice(6, 8)}`;
-    // }
-    // else {
-    //     result = `(${numInDigits.slice(0,3)}) ${numInDigits.slice(3, 6)}-${numInDigits.slice(6, 8)}-${numInDigits.slice(8, 10)}`;
-    // }
     return num
-      .replace(/^(\+7|7|8?)(\d{3})(\d{3})(\d{2})(\d{2})/g, "+7 ($2) $3-$4-$5")
+      .replace(/^(\+7|7|8)(\d{3})(\d{3})(\d{2})(\d{2})/g, "+7 ($2) $3-$4-$5")
       .slice(0, 18);
   }
   // Produces timestamp using current time and passes all the arguments to App > addNewAdItem()
@@ -194,7 +180,7 @@ class Form extends React.Component {
             <option value="Mumbai">Mumbai</option>
             <option value="Riga">Riga</option>
             <option value="Moscow">Moscow</option>
-            <option value="Torronto">Torronto</option>
+            <option value="Torronto">Toronto</option>
             <option value="Kioto">Kioto</option>
           </select>
 
