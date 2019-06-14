@@ -9,3 +9,8 @@
   padding-bottom: 32px;
   color: #1b2834;
 }
+@media screen AND (max-width: 780px) {
+  .AdsList {
+    width: 95%;
+  }
+}

@@ -4,17 +4,11 @@
   margin-bottom: 54px;
 }
 
-/* @media screen AND (max-width: 1400px) {
+@media screen AND (max-width: 780px) {
   .Form {
-    width: 70%;
+    width: 95%;
   }
 }
-
-@media screen AND (max-width: 650px) {
-  .Form {
-    padding: 0 20px;
-  }
-} */
 
 .Form-heading {
   margin: 48px 0 24px 0;

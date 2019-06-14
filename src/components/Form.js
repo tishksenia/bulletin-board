@@ -49,6 +49,16 @@ const customSelectStyles = {
   }),
   indicatorSeparator: (provided, state) => ({
     visibility: "hidden"
+  }),
+  menu: (provided, state) => ({
+    ...provided,
+    marginTop: "-2px",
+    borderRadius: "2px",
+    boxShadow: "0 2px 4px 0 rgba(0, 0, 0, 0.26)"
+  }),
+  menuList: (provided, state) => ({
+    ...provided,
+    paddingTop: "0"
   })
 };
 
@@ -66,7 +76,7 @@ class Form extends React.Component {
         phone: "",
         city: ""
       },
-      //inputStatus.field is one of:
+      //inputStatus.name is one of:
       //    default, error, valid
       inputStatus: {
         title: "default",
@@ -124,7 +134,6 @@ class Form extends React.Component {
         } else {
           formErrors.phone = "";
         }
-
         break;
       default:
         break;
@@ -140,6 +149,7 @@ class Form extends React.Component {
       inputStatus
     });
   };
+  // Handles <Select /> change
   handleSelectChange = city => {
     let key = "";
     if (city) {
@@ -153,6 +163,7 @@ class Form extends React.Component {
 
     this.setState({ city: key, inputStatus });
   };
+  // Sets input status based on input's name
   setInputStatus(name) {
     let inputState = "";
     const formError = this.state.formErrors[name];
@@ -165,7 +176,7 @@ class Form extends React.Component {
     inputStatus[name] = inputState;
     this.setState({ inputStatus });
   }
-  //Returns phone number in +7 (999) 999-11-11 format
+  // Returns phone number in +7 (999) 999-11-11 format
   getFormattedNumber(num) {
     const codeChars = ["7", "8", "+"];
     let token = "";
