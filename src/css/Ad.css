@@ -19,13 +19,6 @@
   margin-bottom: 20px;
 }
 
-/* @media screen AND (max-width: 650px) {
-  .Ad-title {
-    display: block;
-    width: 70%;
-  }
-} */
-
 .Ad-message {
   font-size: 14px;
   line-height: 1.57;

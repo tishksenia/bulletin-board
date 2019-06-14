@@ -45,7 +45,8 @@ const customSelectStyles = {
     },
     outlineOffset: "0",
     fontSize: "14px",
-    color: "#68717c"
+    color: "#68717c",
+    paddingLeft: "7px"
   }),
   indicatorSeparator: (provided, state) => ({
     visibility: "hidden"
@@ -265,7 +266,7 @@ class Form extends React.Component {
                 Текст объявления
               </label>
               <textarea
-                className={`form-group__text-input input ${
+                className={`form-group__text-input form-group__textarea input ${
                   this.state.formErrors.message.length > 0 ? "error" : ""
                 }`}
                 id="message"

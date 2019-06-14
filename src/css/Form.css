@@ -53,10 +53,7 @@
   background-color: rgba(27, 40, 52, 0.01);
 }
 
-.form-group__text-input {
-}
-
-textarea {
+.form-group__textarea {
   max-width: 410px;
   height: 140px;
   resize: none;

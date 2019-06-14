@@ -32,7 +32,7 @@ class AdsList extends React.Component {
   render() {
     return (
       <div className="AdsList">
-        <h2 className="AdsList-title">Available Ads</h2>
+        <h2 className="AdsList-title">Объявление</h2>
         {this.renderAds()}
       </div>
     );
