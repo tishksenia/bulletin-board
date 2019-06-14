@@ -92,7 +92,9 @@ class Form extends React.Component {
     // maximum lengths
     const titleMaxLength = 140;
     const messageMaxLength = 300;
-    const phoneMaxLength = 20;
+    const phoneMaxLength = 18;
+    // phone regex
+    const phoneRegex = /^(\+7|7|8)?[\s\-]?\(?[0-9]{3}\)?[\s\-]?[0-9]{3}[\s\-]?[0-9]{2}[\s\-]?[0-9]{2}$/;
 
     switch (name) {
       case "title":
@@ -115,10 +117,8 @@ class Form extends React.Component {
         if (value.length === 0) {
           formErrors.phone = "Заполните поле";
         } else if (
-          value.length > phoneMaxLength ||
-          !value.match(
-            /^(\+7|7|8)?[\s\-]?\(?[0-9]{3}\)?[\s\-]?[0-9]{3}[\s\-]?[0-9]{2}[\s\-]?[0-9]{2}$/
-          )
+          value.length !== phoneMaxLength ||
+          !value.match(phoneRegex)
         ) {
           formErrors.phone = "Неверный формат";
         } else {
@@ -167,9 +167,21 @@ class Form extends React.Component {
   }
   //Returns phone number in +7 (999) 999-11-11 format
   getFormattedNumber(num) {
-    return num
-      .replace(/^(\+7|7|8)(\d{3})(\d{3})(\d{2})(\d{2})/g, "+7 ($2) $3-$4-$5")
-      .slice(0, 18);
+    const codeChars = ["7", "8", "+"];
+    let token = "";
+    // handles the case when number without +7||7||8 code was given
+    if (!codeChars.includes(num[0])) {
+      token = "+7";
+    }
+    return (
+      token +
+      num
+        .replace(
+          /^(\+7|7|8)(\d?\d{3})(\d{3})(\d{2})(\d{2})/g,
+          "+7 ($2) $3-$4-$5"
+        )
+        .slice(0, 18)
+    );
   }
   // Produces timestamp using current time and passes all the arguments to App > addNewAdItem()
   handleFormSubmit = event => {
