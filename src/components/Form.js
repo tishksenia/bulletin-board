@@ -29,6 +29,14 @@ class Form extends React.Component {
         message: "",
         phone: "",
         city: ""
+      },
+      //inputStatus.field is one of:
+      //    default, error, valid
+      inputStatus: {
+        title: "default",
+        message: "default",
+        phone: "default",
+        city: "default"
       }
     };
   }
@@ -43,6 +51,7 @@ class Form extends React.Component {
     }
 
     let formErrors = { ...this.state.formErrors };
+    let inputStatus = this.state.inputStatus;
 
     // maximum lengths
     const titleMaxLength = 140;
@@ -51,35 +60,63 @@ class Form extends React.Component {
 
     switch (name) {
       case "title":
-        formErrors.title =
-          value.length > titleMaxLength || value.length === 0
-            ? "Title is required and cannot be longer than 140 characters"
-            : "";
+        if (value.length === 0) {
+          formErrors.title = "Заполните поле";
+        } else if (value.length > titleMaxLength) {
+          formErrors.title = `Не более ${titleMaxLength} символов`;
+        } else {
+          formErrors.title = "";
+        }
         break;
       case "message":
-        formErrors.message =
-          value.length > messageMaxLength
-            ? "Message cannot be longer than 140 characters"
-            : "";
+        if (value.length > messageMaxLength) {
+          formErrors.message = `Не более ${messageMaxLength} символов`;
+        } else {
+          formErrors.message = "";
+        }
         break;
       case "phone":
-        formErrors.phone =
-          value.length === 0 ||
+        if (value.length === 0) {
+          formErrors.phone = "Заполните поле";
+        } else if (
           value.length > phoneMaxLength ||
           !value.match(
             /^(\+7|7|8)?[\s\-]?\(?[0-9]{3}\)?[\s\-]?[0-9]{3}[\s\-]?[0-9]{2}[\s\-]?[0-9]{2}$/
           )
-            ? "Phone is required and must be in +7 (111) 111-11-11 form."
-            : "";
+        ) {
+          formErrors.phone = "Неверный формат";
+        } else {
+          formErrors.phone = "";
+        }
+
         break;
       default:
         break;
     }
+    let inputState = "";
+    formErrors[name].length > 0
+      ? (inputState = "error")
+      : (inputState = "valid");
+    inputStatus[name] = inputState;
     this.setState({
       formErrors,
-      [name]: value
+      [name]: value,
+      inputStatus
     });
   };
+  setInputStatus(name) {
+    let inputState = "";
+    const value = this.state.value;
+    const formError = this.state.formErrors[name];
+    console.log(formError);
+    console.log(formError);
+    this.state.formErrors[name].length > 0
+      ? (inputState = "error")
+      : (inputState = "valid");
+    let inputStatus = this.state.inputStatus;
+    inputStatus[name] = inputState;
+    this.setState({ inputStatus });
+  }
   //Returns phone number in +7 (999) 999-11-11 format
   getFormattedNumber(num) {
     return num
@@ -120,74 +157,103 @@ class Form extends React.Component {
   render() {
     return (
       <div className="Form">
-        <h2 className="Form-heading">Post new Ad</h2>
+        <h2 className="Form-heading">Подать объявление</h2>
         <form className="Form-form-group" onSubmit={this.handleFormSubmit}>
-          <label className="form-group__label" htmlFor="title">
-            Title <span className="required">*</span>
-          </label>
-          <input
-            className={`form-group__text-input ${
-              this.state.formErrors.title.length > 0 ? "error" : ""
-            }`}
-            id="title"
-            name="title"
-            type="text"
-            value={this.state.title}
-            onChange={this.handleInputChange}
-          />
-          <FormErrors inputName="title" formErrors={this.state.formErrors} />
+          <div className="input-group">
+            <div>
+              <label className="form-group__label" htmlFor="title">
+                Заголовок
+              </label>
+              <input
+                className={`form-group__text-input input ${
+                  this.state.formErrors.title.length > 0 ? "error" : ""
+                }`}
+                id="title"
+                name="title"
+                type="text"
+                value={this.state.title}
+                onChange={this.handleInputChange}
+              />
+            </div>
+            <FormErrors
+              inputName="title"
+              inputStatus={this.state.inputStatus}
+              formErrors={this.state.formErrors}
+            />
+          </div>
 
-          <label className="form-group__label" htmlFor="message">
-            Message
-          </label>
-          <textarea
-            className={`form-group__text-input ${
-              this.state.formErrors.message.length > 0 ? "error" : ""
-            }`}
-            id="message"
-            name="message"
-            type="text"
-            value={this.state.message}
-            onChange={this.handleInputChange}
-          />
-          <FormErrors inputName="message" formErrors={this.state.formErrors} />
-
-          <label className="form-group__label" htmlFor="phone">
-            Phone <span className="required">*</span>
-          </label>
-          <input
-            className={`form-group__text-input ${
-              this.state.formErrors.phone.length > 0 ? "error" : ""
-            }`}
-            name="phone"
-            type="tel"
-            value={this.state.phone}
-            onChange={this.handleInputChange}
-          />
-          <FormErrors inputName="phone" formErrors={this.state.formErrors} />
-
-          <label className="form-group__label" htmlFor="city">
-            City
-          </label>
-          <select
-            className="form-group__select"
-            name="city"
-            id="city"
-            value={this.state.city}
-            onChange={this.handleInputChange}
-          >
-            <option value="">Choose a city</option>
-            <option value="Mumbai">Mumbai</option>
-            <option value="Riga">Riga</option>
-            <option value="Moscow">Moscow</option>
-            <option value="Torronto">Toronto</option>
-            <option value="Kioto">Kioto</option>
-          </select>
-
+          <div className="input-group">
+            <div>
+              <label className="form-group__label" htmlFor="message">
+                Текст объявления
+              </label>
+              <textarea
+                className={`form-group__text-input input ${
+                  this.state.formErrors.message.length > 0 ? "error" : ""
+                }`}
+                id="message"
+                name="message"
+                type="text"
+                value={this.state.message}
+                onChange={this.handleInputChange}
+              />{" "}
+            </div>
+            <FormErrors
+              inputName="message"
+              inputStatus={this.state.inputStatus}
+              formErrors={this.state.formErrors}
+            />{" "}
+          </div>
+          <div className="input-group">
+            <div>
+              <label className="form-group__label" htmlFor="phone">
+                Телефон
+              </label>
+              <input
+                className={`form-group__text-input input ${
+                  this.state.formErrors.phone.length > 0 ? "error" : ""
+                }`}
+                name="phone"
+                type="tel"
+                placeholder="+7 (___) ___ - __ - __"
+                value={this.state.phone}
+                onChange={this.handleInputChange}
+              />
+            </div>
+            <FormErrors
+              inputName="phone"
+              inputStatus={this.state.inputStatus}
+              formErrors={this.state.formErrors}
+            />
+          </div>
+          <div className="input-group">
+            <div>
+              <label className="form-group__label" htmlFor="city">
+                Город
+              </label>
+              <select
+                className="form-group__select input"
+                name="city"
+                id="city"
+                value={this.state.city}
+                onChange={this.handleInputChange}
+              >
+                <option value="" />
+                <option value="Москва">Москва</option>
+                <option value="Хабаровск">Хабаровск</option>
+                <option value="Чебоксары">Чебоксары</option>
+              </select>
+            </div>
+            <FormErrors
+              inputName="city"
+              inputStatus={this.state.inputStatus}
+              formErrors={this.state.formErrors}
+            />
+          </div>
           <input
             className="form-group__submit-btn btn"
             type="submit"
-            value="Post"
+            value="Подать"
           />
         </form>
       </div>

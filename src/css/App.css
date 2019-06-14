@@ -1,18 +1,9 @@
-@import url("https://fonts.googleapis.com/css?family=Roboto&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600&display=swap");
 
-body {
-  background: linear-gradient(
-    0.25turn,
-    rgba(241, 208, 255, 100%),
-    rgba(0, 255, 187, 0.5)
-  );
-}
 .App {
   background-color: #ffffff;
   width: 65%;
   margin: 0 auto;
-  margin-top: 100px;
-  padding-top: 60px;
 }
 
 @media screen AND (max-width: 1400px) {
@@ -27,9 +18,11 @@ h3,
 p,
 span,
 button,
-label {
-  font-family: "Roboto", sans-serif;
-  color: #333333;
+label,
+input,
+textarea {
+  font-family: "Source Sans Pro", sans-serif;
+  color: #68717c;
 }
 
 .App-title {
@@ -41,16 +34,19 @@ label {
 .btn {
   -webkit-appearance: none;
   transition-duration: 0.5s;
-  border-radius: 10px;
+  border-radius: 3px;
   border: 0;
   outline: 0;
-  background-color: #8aecdc;
+  background-color: #2d74da;
   color: #ffffff;
-  padding: 10px 14px;
+  padding: 8px 48px 10px 48px;
+  box-shadow: 0 1px 0 0 rgba(27, 40, 52, 0.16);
+  background-image: linear-gradient(to bottom, #2d74da, #2367c8);
+  font-weight: normal;
+  letter-spacing: normal;
+  font-size: 14px;
 }
 
-.btn:hover {
-  transition-duration: 0.5s;
-
-  background-color: #bee8e1;
+.btn:active {
+  background-image: linear-gradient(to top, #2d74da, #276ccf, #2367c8);
 }
