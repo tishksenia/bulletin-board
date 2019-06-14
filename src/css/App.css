@@ -33,20 +33,14 @@ textarea {
 
 .btn {
   -webkit-appearance: none;
-  transition-duration: 0.5s;
-  border-radius: 3px;
-  border: 0;
   outline: 0;
-  background-color: #2d74da;
-  color: #ffffff;
-  padding: 8px 48px 10px 48px;
-  box-shadow: 0 1px 0 0 rgba(27, 40, 52, 0.16);
-  background-image: linear-gradient(to bottom, #2d74da, #2367c8);
+
+  border-radius: 3px;
+
   font-weight: normal;
   letter-spacing: normal;
   font-size: 14px;
 }
 
 .btn:active {
-  background-image: linear-gradient(to top, #2d74da, #276ccf, #2367c8);
 }

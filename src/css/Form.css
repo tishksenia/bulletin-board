@@ -4,7 +4,7 @@
   margin-bottom: 54px;
 }
 
-@media screen AND (max-width: 1400px) {
+/* @media screen AND (max-width: 1400px) {
   .Form {
     width: 70%;
   }
@@ -14,7 +14,7 @@
   .Form {
     padding: 0 20px;
   }
-}
+} */
 
 .Form-heading {
   margin: 48px 0 24px 0;
@@ -78,6 +78,18 @@ textarea {
   transition-duration: 0.5s;
   display: block;
   margin-top: 29px;
+  padding: 8px 48px 10px 48px;
+
+  background-color: #2d74da;
+  background-image: linear-gradient(to bottom, #2d74da, #2367c8);
+  box-shadow: 0 1px 0 0 rgba(27, 40, 52, 0.16);
+  color: #ffffff;
+  border: 0;
 }
+.form-group__submit-btn:active {
+  background-image: linear-gradient(to top, #2d74da, #276ccf, #2367c8);
+}
+
 .form-group__select {
+  background: url(../media/select-arrow.svg) top 50% right 14px no-repeat;
 }
