@@ -2,6 +2,7 @@ import React from "react";
 import "../css/FormErrors.css";
 
 class FormErrors extends React.Component {
+  // Given input's name, outputs its default status
   outputDefault(name) {
     let statusText = "";
     switch (name) {
@@ -24,7 +25,10 @@ class FormErrors extends React.Component {
         {statusText.split("\n").length > 1 ? (
           statusText.split("\n").map((data, i, arr) => {
             return (
-              <p className="FormError__status-text FormError__status-text--default">
+              <p
+                key={i}
+                className="FormError__status-text FormError__status-text--default"
+              >
                 {data} <br />
               </p>
             );
@@ -37,6 +41,7 @@ class FormErrors extends React.Component {
       </div>
     );
   }
+  // Given input's name, outputs corresponding error
   outputError(name) {
     return (
       <div className="FormError FormError--error">
@@ -46,6 +51,7 @@ class FormErrors extends React.Component {
       </div>
     );
   }
+  // Outputs valid status
   outputValid() {
     return (
       <div className="FormError FormError--valid">
@@ -55,17 +61,15 @@ class FormErrors extends React.Component {
       </div>
     );
   }
+  // Outputs input status based on it's inputStatus
   outputStatus(name) {
     switch (this.props.inputStatus[name]) {
       case "default":
         return this.outputDefault(name);
-        break;
       case "error":
         return this.outputError(name);
-        break;
       case "valid":
         return this.outputValid();
-        break;
       default:
         break;
     }
@@ -74,13 +78,6 @@ class FormErrors extends React.Component {
     return (
       <div className="FormErrors">
         {this.outputStatus(this.props.inputName)}
-        {/* {this.props.formErrors[this.props.inputName] !== "" ? (
-          <p className="FormErrors-error-text">
-            {this.props.formErrors[this.props.inputName]}
-          </p>
-        ) : (
-          ""
-        )} */}
       </div>
     );
   }

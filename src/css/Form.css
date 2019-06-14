@@ -93,3 +93,11 @@ textarea {
 .form-group__select {
   background: url(../media/select-arrow.svg) top 50% right 14px no-repeat;
 }
+
+.Select {
+  font-family: "Source Sans Pro", sans-serif;
+  width: 410px;
+}
+.Select__control {
+  color: red;
+}

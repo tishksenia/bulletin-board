@@ -9,7 +9,9 @@
 .Ad-contacts-and-controls {
   flex-direction: column;
 }
-
+.Ad-information {
+  max-width: 60%;
+}
 .Ad-title {
   font-size: 18px;
   line-height: 1.22;

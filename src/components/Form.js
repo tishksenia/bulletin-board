@@ -1,6 +1,7 @@
 import React from "react";
 import "../css/Form.css";
 import FormErrors from "./FormErrors";
+import Select from "react-select";
 
 // Defines if form is valid or not
 const formValid = ({ formErrors, ...rest }) => {
@@ -14,6 +15,41 @@ const formValid = ({ formErrors, ...rest }) => {
       rest[value] === "" && (valid = false);
   }
   return valid;
+};
+
+// options for <Select />
+const options = [
+  { value: "Москва", label: "Москва" },
+  { value: "Хабаровск", label: "Хабаровск" },
+  { value: "Чебоксары", label: "Чебоксары" }
+];
+// custom styles for <Select />
+const customSelectStyles = {
+  option: (provided, state) => ({
+    ...provided,
+    color: state.isSelected ? "#ffffff" : "#68717c",
+    backgroundColor: state.isSelected ? "#488edf" : "#ffffff",
+    padding: 15,
+    paddingLeft: 12,
+    fontSize: "14px",
+    "&:first-child": {
+      marginTop: "0"
+    }
+  }),
+  control: (provided, state) => ({
+    ...provided,
+    boxShadow: state.isFocused ? "none" : "",
+    borderColor: state.isActive ? "#d4d8db" : "#d4d8db",
+    "&:hover": {
+      borderColor: "#d4d8db"
+    },
+    outlineOffset: "0",
+    fontSize: "14px",
+    color: "#68717c"
+  }),
+  indicatorSeparator: (provided, state) => ({
+    visibility: "hidden"
+  })
 };
 
 class Form extends React.Component {
@@ -104,9 +140,21 @@ class Form extends React.Component {
       inputStatus
     });
   };
+  handleSelectChange = city => {
+    let key = "";
+    if (city) {
+      key = city.value;
+    }
+
+    let inputState = "";
+    inputState = city && city.value !== "" ? "valid" : "default";
+    let inputStatus = this.state.inputStatus;
+    inputStatus["city"] = inputState;
+
+    this.setState({ city: key, inputStatus });
+  };
   setInputStatus(name) {
     let inputState = "";
-    const value = this.state.value;
     const formError = this.state.formErrors[name];
     console.log(formError);
     console.log(formError);
@@ -151,6 +199,12 @@ class Form extends React.Component {
         message: "",
         phone: "",
         city: ""
+      },
+      inputStatus: {
+        title: "default",
+        message: "default",
+        phone: "default",
+        city: "default"
       }
     });
   }
@@ -231,18 +285,17 @@ class Form extends React.Component {
               <label className="form-group__label" htmlFor="city">
                 Город
               </label>
-              <select
-                className="form-group__select input"
+              <Select
+                className="Select"
+                options={options}
                 name="city"
                 id="city"
-                value={this.state.city}
-                onChange={this.handleInputChange}
-              >
-                <option value="" />
-                <option value="Москва">Москва</option>
-                <option value="Хабаровск">Хабаровск</option>
-                <option value="Чебоксары">Чебоксары</option>
-              </select>
+                onChange={this.handleSelectChange}
+                defaultInputValue=""
+                isClearable
+                styles={customSelectStyles}
+                placeholder=""
+              />
             </div>
             <FormErrors
               inputName="city"
