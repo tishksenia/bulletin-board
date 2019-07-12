@@ -6,7 +6,7 @@ App's data is stored in local storage.
 
 #### Stack:
 
-React.js, Jest
+React.js
 
 #### Demo:
 
