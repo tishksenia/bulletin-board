@@ -1,61 +1,61 @@
 .ad {
-  position: relative;
-  display: flex;
-  justify-content: space-between;
-  border-radius: 20px;
-  background-color: #ffffff;
-  margin-bottom: 78px;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    border-radius: 20px;
+    background-color: #ffffff;
+    margin-bottom: 78px;
 
-  &__controls {
-    margin-top: 153px;
-    flex: none;
-  }
-  &__contacts-and-controls {
-    flex-direction: column;
-  }
-  &__information {
-    max-width: 60%;
-  }
-  &__title {
-    font-size: 18px;
-    line-height: 1.22;
-    color: #1b2834;
-    margin-bottom: 20px;
-  }
-  &__message {
-    font-size: 14px;
-    line-height: 1.57;
-    white-space: pre-wrap;
-  }
-  &__phone,
-  &__city {
-    color: #1b2834;
-    padding: 3px 0 0 31px;
-    font-size: 14px;
-    line-height: 1.57;
-    margin-bottom: 14px;
-  }
-  &__city {
-    background: url(../../media/city-icon.svg) 0 2px no-repeat;
-  }
-  &__phone {
-    background: url(../../media/phone-icon.svg) 0 2px no-repeat;
-  }
-  &__btn {
-    display: block;
-    min-width: 178px;
-    padding: 8px 0px 10px 0px;
-  }
-  &__edit-btn {
-    color: #2d74da;
-    border: 1px solid #2d74da;
-    background: none;
-    margin-bottom: 14px;
-  }
-  &__delete-btn {
-    color: #fa5e5b;
-    border: 1px solid #fa5e5b;
-    background: none;
-    margin-bottom: 14px;
-  }
+    &__controls {
+        margin-top: 153px;
+        flex: none;
+    }
+    &__contacts-and-controls {
+        flex-direction: column;
+    }
+    &__information {
+        max-width: 60%;
+    }
+    &__title {
+        font-size: 18px;
+        line-height: 1.22;
+        color: #1b2834;
+        margin-bottom: 20px;
+    }
+    &__message {
+        font-size: 14px;
+        line-height: 1.57;
+        white-space: pre-wrap;
+    }
+    &__phone,
+    &__city {
+        color: #1b2834;
+        padding: 3px 0 0 31px;
+        font-size: 14px;
+        line-height: 1.57;
+        margin-bottom: 14px;
+    }
+    &__city {
+        background: url(../../media/city-icon.svg) 0 2px no-repeat;
+    }
+    &__phone {
+        background: url(../../media/phone-icon.svg) 0 2px no-repeat;
+    }
+    &__btn {
+        display: block;
+        min-width: 178px;
+        padding: 8px 0px 10px 0px;
+    }
+    &__edit-btn {
+        color: #2d74da;
+        border: 1px solid #2d74da;
+        background: none;
+        margin-bottom: 14px;
+    }
+    &__delete-btn {
+        color: #fa5e5b;
+        border: 1px solid #fa5e5b;
+        background: none;
+        margin-bottom: 14px;
+    }
 }

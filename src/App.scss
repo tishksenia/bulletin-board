@@ -1,0 +1,37 @@
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600&display=swap');
+
+.app {
+    background-color: #ffffff;
+    width: 65%;
+    margin: 0 auto;
+}
+
+@media screen AND (max-width: 1400px) {
+    .app {
+        width: 90%;
+    }
+}
+
+h1,
+h2,
+h3,
+p,
+span,
+button,
+label,
+input,
+textarea {
+    font-family: 'Source Sans Pro', sans-serif;
+    color: #68717c;
+}
+
+.btn {
+    -webkit-appearance: none;
+    outline: 0;
+
+    border-radius: 3px;
+
+    font-weight: normal;
+    letter-spacing: normal;
+    font-size: 14px;
+}
