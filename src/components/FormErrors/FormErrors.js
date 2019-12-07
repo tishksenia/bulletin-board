@@ -1,5 +1,5 @@
 import React from "react";
-import "../css/FormErrors.css";
+import "./FormErrors.scss";
 
 class FormErrors extends React.Component {
   // Given input's name, outputs its default status

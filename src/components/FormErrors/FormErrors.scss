@@ -1,0 +1,33 @@
+.FormErrors {
+    max-width: 100%;
+    margin-left: 25px;
+    align-items: flex-start;
+    margin-top: 60px;
+
+    .FormError {
+        align-content: flex-start;
+        padding-left: 22px;
+        
+        &--valid {
+            background: url(../../media/input-valid.svg) 0 2px no-repeat;
+        }
+        &--error {
+            background: url(../../media/input-error.svg) 0 2px no-repeat;
+        }
+        &--default {
+            background: url(../../media/help.svg) 0 4px no-repeat;
+        }
+
+        &__status-text {
+            font-size: 14px;
+            line-height: 1.57;
+            white-space: normal;
+        }
+        &__status-text--valid {
+            color: #16c98d;
+        }
+        &__status-text--error {
+            color: #fa5e5b;
+        }
+    }
+}
