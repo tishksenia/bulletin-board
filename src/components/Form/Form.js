@@ -1,7 +1,7 @@
 import React from 'react';
-import './Form.scss';
 import FormErrors from '../FormErrors/FormErrors';
 import Select from 'react-select';
+import './Form.scss';
 
 // Defines if form is valid or not
 const formValid = ({ formErrors, ...rest }) => {

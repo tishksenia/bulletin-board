@@ -1,7 +1,6 @@
 import React from 'react';
 import AdsList from './components/AdsList/AdsList';
 import Form from './components/Form/Form';
-import 'reset-css';
 import './App.scss';
 
 class App extends React.Component {
