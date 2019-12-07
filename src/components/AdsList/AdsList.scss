@@ -3,11 +3,11 @@
   margin: 0 auto;
   padding-bottom: 80px;
   margin-bottom: 40px;
-}
-.AdsList-title {
-  font-size: 24px;
-  padding-bottom: 32px;
-  color: #1b2834;
+  &_title {
+    font-size: 24px;
+    padding-bottom: 32px;
+    color: #1b2834;
+  }
 }
 @media screen AND (max-width: 780px) {
   .AdsList {

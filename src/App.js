@@ -1,5 +1,5 @@
 import React from "react";
-import AdsList from "./components/AdsList";
+import AdsList from "./components/AdsList/AdsList";
 import Form from "./components/Form";
 import "./css/App.css";
 
